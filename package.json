@@ -1,0 +1,14 @@
+
+{
+  "name": "the-coco-hotel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Coco Hotel website and backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

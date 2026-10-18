@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Staff | The COCO Boutique Hotel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap">
+<style>
+:root{--iv:#F7F4EE;--cr:#EAE1D4;--wa:#604A39;--es:#30251F;--go:#B69A68;--gr:#8D857C;--bd:#dccfbb}
+*{box-sizing:border-box;margin:0}body{font:400 15px/1.5 Inter,system-ui,sans-serif;background:var(--iv);color:var(--es)}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border:1px solid var(--es);background:var(--es);color:var(--iv);font:500 .7rem Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--go);border-color:var(--go);color:var(--es)}.btn.gh{background:transparent;color:var(--es)}.btn.gh:hover{background:var(--es);color:var(--iv)}.btn.ok{background:#2f6b4a;border-color:#2f6b4a;color:#fff}.btn.no{background:transparent;border-color:#9a3b2e;color:#9a3b2e}.btn.no:hover{background:#9a3b2e;color:#fff}
+:focus-visible{outline:2px solid var(--go);outline-offset:2px}
+input,select,textarea{width:100%;border:1px solid var(--bd);background:#fff;padding:10px 12px;font:inherit;color:var(--es);min-height:42px}
+label{display:block;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gr);margin-top:14px}label input,label select,label textarea{margin-top:4px;text-transform:none;letter-spacing:0;font-size:1rem;color:var(--es)}
+#login{min-height:100vh;display:grid;place-items:center;padding:20px;background:var(--es)}
+.card{background:var(--iv);padding:38px;width:100%;max-width:400px;border-top:3px solid var(--go)}.card h1{font-size:2rem;letter-spacing:.14em;text-align:center}.card small{display:block;text-align:center;letter-spacing:.34em;font-size:.6rem;text-transform:uppercase;color:var(--wa);margin-bottom:10px}
+.err{color:#9a3b2e;font-size:.9rem;min-height:1.4em;margin-top:12px}
+header{background:var(--es);color:var(--iv);padding:12px clamp(14px,3vw,32px);display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+header b{font:500 1.4rem 'Cormorant Garamond',serif;letter-spacing:.18em}header .sp{flex:1}header .btn{border-color:rgba(247,244,238,.4);background:transparent;color:var(--iv);min-height:34px}header .btn:hover{background:var(--go);color:var(--es);border-color:var(--go)}
+#live{font-size:.74rem;letter-spacing:.1em;display:flex;align-items:center;gap:8px}#live i{width:9px;height:9px;border-radius:50%;background:#c0392b}#live.on i{background:#3fb97a;box-shadow:0 0 0 4px rgba(63,185,122,.25)}
+main{max-width:1280px;margin:0 auto;padding:22px clamp(14px,3vw,32px) 60px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}.st{background:#fff;border:1px solid var(--bd);padding:16px 18px}.st b{display:block;font:500 2rem/1 'Cormorant Garamond',serif;color:var(--wa)}.st span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gr)}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}.tabs button{border:1px solid var(--bd);background:none;padding:10px 18px;font:500 .7rem Inter;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--es)}.tabs button[aria-selected=true]{background:var(--es);color:var(--iv);border-color:var(--es)}
+.bar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}.bar select,.bar input{width:auto;flex:1;min-width:160px;max-width:320px}
+.tw{overflow-x:auto;border:1px solid var(--bd);background:#fff}table{border-collapse:collapse;width:100%;min-width:900px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--bd);vertical-align:top;font-size:.88rem}th{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gr);background:var(--iv)}
+tr.new td{background:#fbf3dd}.bd{display:inline-block;padding:2px 10px;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid}.bd.pending{color:#9a6a12;border-color:#9a6a12}.bd.confirmed{color:#2f6b4a;border-color:#2f6b4a}.bd.cancelled{color:#9a3b2e;border-color:#9a3b2e}
+td .a{display:flex;gap:6px;flex-wrap:wrap}td a{color:var(--wa)}.mut{color:var(--gr);font-size:.8rem}.pane{display:none}.pane.on{display:block}
+.rv{background:#fff;border:1px solid var(--bd);margin-bottom:10px;padding:14px 16px;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap}.rv .s{color:var(--go)}
+.wk{background:#fff;border:1px solid var(--bd);padding:26px;max-width:620px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+#toasts{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:50}.toast{background:var(--es);color:var(--iv);padding:14px 18px;border-left:4px solid var(--go);max-width:340px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+@media(max-width:800px){.stats{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+</style></head><body>
+<div id="login"><form class="card" id="lf"><small>Staff</small><h1>THE COCO</h1><label>Admin ID<input id="lu" autocomplete="username" required></label><label>Password<input id="lp" type="password" autocomplete="current-password" required></label><div class="err" id="le" role="alert"></div><button class="btn" style="width:100%;margin-top:8px" type="submit">Sign in</button></form></div>
+<div id="app" hidden>
+<header><b>THE COCO</b><span class="mut" style="color:var(--ch,#C8B69D)">Staff</span><span class="sp"></span><span id="live"><i></i><span>Connecting…</span></span><button class="btn" id="nb">Enable alerts</button><button class="btn" id="sb">Sound: on</button><button class="btn" id="lo">Sign out</button></header>
+<main>
+<div class="stats"><div class="st"><b id="s1">0</b><span>Pending requests</span></div><div class="st"><b id="s2">0</b><span>Arrivals today</span></div><div class="st"><b id="s3">0</b><span>Departures today</span></div><div class="st"><b id="s4">0</b><span>Upcoming confirmed</span></div><div class="st"><b id="s5">₹0</b><span>Upcoming confirmed value</span></div></div>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="pb">Bookings</button><button role="tab" aria-selected="false" data-t="pr">Reviews</button><button role="tab" aria-selected="false" data-t="pw">Add booking</button></div>
+<section class="pane on" id="pb"><div class="bar"><select id="ff" aria-label="Filter"><option value="all">All bookings</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="cancelled">Cancelled</option><option value="arr">Arrivals today</option><option value="dep">Departures today</option></select><input id="fq" type="search" placeholder="Search name, phone, reference" aria-label="Search"></div>
+<div class="tw"><table><thead><tr><th>Booked</th><th>Reference</th><th>Guest</th><th>Stay</th><th>Rooms / guests</th><th>Total</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="bt"></tbody></table></div></section>
+<section class="pane" id="pr"><div id="rl"></div></section>
+<section class="pane" id="pw"><form class="wk" id="wf"><h3 style="font-size:1.7rem">Add a walk-in or phone booking</h3><div class="g2"><label>Guest name<input name="nm" required></label><label>Phone<input name="ph" type="tel" required></label></div><label>Email (optional)<input name="em" type="email"></label>
+<div class="g2"><label>Check-in<input name="ci" type="date" required></label><label>Check-out<input name="co" type="date" required></label><label>Rooms<select name="rm"><option>1</option><option>2</option><option>3</option><option>4</option></select></label><label>Guests<select name="gu"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label></div>
+<label>Payment<select name="py"><option value="hotel">Pay at the hotel</option><option value="online">Paid online</option></select></label><label>Notes<textarea name="rq" rows="2"></textarea></label><div class="err" id="we" role="alert"></div><button class="btn" type="submit">Save booking (confirmed)</button></form></section>
+</main></div>
+<div id="toasts" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const inr=n=>"₹"+Number(n||0).toLocaleString("en-IN"),stars=n=>"★".repeat(n)+"☆".repeat(5-n);
+const today=()=>new Date().toLocaleDateString("en-CA");
+let S=null;try{S=JSON.parse(localStorage.getItem("coco_staff")||"null")}catch(e){}if(S&&S.exp<Date.now())S=null;
+let B=[],R=[],es=null,sound=true,fresh=new Set(),unread=0,AC=null,tm=null;
+const VN={hotel:"The COCO Boutique Hotel",kbowl:"The K Bowl",bcafe:"The B Café",deodar:"Deodar Kitchen"};
+function beep(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(!sound)return;[660,880].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;o.connect(g);g.connect(AC.destination);const t=AC.currentTime+i*.18;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.3);o.start(t);o.stop(t+.32)})}catch(e){}}
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;$("#toasts").appendChild(d);setTimeout(()=>d.remove(),9000)}
+async function api(p,o={}){const r=await fetch(p,{...o,headers:{"Content-Type":"application/json",Authorization:"Bearer "+(S&&S.t)}});const j=await r.json().catch(()=>({}));if(r.status===401){logout();throw new Error("Session expired – please sign in again")}if(!r.ok)throw new Error(j.error||"Request failed");return j}
+function logout(){localStorage.removeItem("coco_staff");S=null;if(es)es.close();clearTimeout(tm);$("#app").hidden=true;$("#login").hidden=false}
+$("#lf").onsubmit=async e=>{e.preventDefault();$("#le").textContent="";beep();try{const r=await fetch("/api/admin/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({user:$("#lu").value.trim(),password:$("#lp").value})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||"Login failed");S={t:j.token,exp:Date.now()+j.hours*3600000};localStorage.setItem("coco_staff",JSON.stringify(S));$("#lp").value="";start()}catch(x){$("#le").textContent=x.message}};
+$("#lo").onclick=logout;
+function live(on){$("#live").classList.toggle("on",on);$("#live span").textContent=on?"Live":"Reconnecting…"}
+async function load(){try{B=await api("/api/bookings");R=await api("/api/admin/reviews");draw()}catch(e){toast(e.message)}}
+function upsert(b){const i=B.findIndex(x=>x.ref===b.ref);i>-1?B[i]=b:B.push(b)}
+function alertNew(b){fresh.add(b.ref);unread++;document.title="("+unread+") New booking – Staff";toast("New booking "+b.ref+": "+b.name+", "+b.ci+" to "+b.co+" ("+inr(b.total)+")");beep();
+try{if("Notification"in window&&Notification.permission==="granted")new Notification("New booking "+b.ref,{body:b.name+" · "+b.ci+" → "+b.co+" · "+inr(b.total)})}catch(e){}}
+async function connect(){clearTimeout(tm);if(es)es.close();if(!S)return;
+try{const t=await api("/api/admin/ticket",{method:"POST"});es=new EventSource("/api/admin/stream?ticket="+t.ticket);
+es.addEventListener("hello",()=>{live(true);load()});
+es.addEventListener("booking.new",e=>{const b=JSON.parse(e.data);upsert(b);if(b.source==="web")alertNew(b);draw()});
+es.addEventListener("booking.updated",e=>{upsert(JSON.parse(e.data));draw()});
+es.addEventListener("review.new",e=>{R.push(JSON.parse(e.data));toast("New review received");draw()});
+es.addEventListener("review.updated",e=>{const r=JSON.parse(e.data),i=R.findIndex(x=>x.id===r.id);if(i>-1)R[i]=r;draw()});
+es.onerror=()=>{live(false);es.close();tm=setTimeout(connect,3000)}}catch(e){live(false);if(S)tm=setTimeout(connect,5000)}}
+function start(){$("#login").hidden=true;$("#app").hidden=false;load();connect()}
+function draw(){const t=today(),act=B.filter(b=>b.status!=="cancelled"),up=B.filter(b=>b.status==="confirmed"&&b.ci>=t);
+$("#s1").textContent=B.filter(b=>b.status==="pending").length;$("#s2").textContent=act.filter(b=>b.ci===t).length;$("#s3").textContent=act.filter(b=>b.co===t).length;$("#s4").textContent=up.length;$("#s5").textContent=inr(up.reduce((s,b)=>s+b.total,0));
+const f=$("#ff").value,q=$("#fq").value.trim().toLowerCase();
+const rows=B.filter(b=>(f==="all"||(f==="arr"?b.status!=="cancelled"&&b.ci===t:f==="dep"?b.status!=="cancelled"&&b.co===t:b.status===f))&&(!q||[b.ref,b.name,b.phone,b.email].join(" ").toLowerCase().includes(q))).sort((a,b)=>b.at<a.at?-1:1);
+$("#bt").innerHTML=rows.length?rows.map(b=>`<tr class="${fresh.has(b.ref)?"new":""}"><td>${esc(new Date(b.at).toLocaleString("en-IN",{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"}))}<div class="mut">${b.source==="staff"?"Staff":"Website"}</div></td><td><b>${esc(b.ref)}</b></td><td>${esc(b.name)}<div><a href="tel:${esc(b.phone)}">${esc(b.phone)}</a></div>${b.email?`<div class="mut">${esc(b.email)}</div>`:""}${b.requests?`<div class="mut">“${esc(b.requests)}”</div>`:""}</td><td>${esc(b.ci)} → ${esc(b.co)}<div class="mut">${b.nights} night${b.nights>1?"s":""}</div></td><td>${b.rm} / ${b.gu}</td><td>${inr(b.total)}</td><td>${b.pay==="online"?"Online":"At hotel"}<div class="mut">${b.paid?"Paid":"Unpaid"}</div></td><td><span class="bd ${esc(b.status)}">${esc(b.status)}</span></td><td><div class="a">${b.status!=="confirmed"?`<button class="btn ok" data-a="confirm" data-r="${esc(b.ref)}">Confirm</button>`:""}${b.status!=="cancelled"?`<button class="btn no" data-a="cancel" data-r="${esc(b.ref)}">Cancel</button>`:""}<button class="btn gh" data-a="${b.paid?"unpaid":"paid"}" data-r="${esc(b.ref)}">${b.paid?"Mark unpaid":"Mark paid"}</button></div></td></tr>`).join(""):`<tr><td colspan="9" class="mut">No bookings to show.</td></tr>`;
+$("#rl").innerHTML=R.length?R.slice().reverse().map(r=>`<div class="rv"><div><span class="s">${stars(r.stars)}</span> <b>${esc(VN[r.venue]||r.venue)}</b>${r.published===false?" <i class='mut'>(hidden)</i>":""}<div>${esc(r.comment)}</div><div class="mut">${esc(r.name||"Guest")} · ${esc(new Date(r.at).toLocaleDateString("en-IN"))}</div></div><button class="btn gh" data-rv="${esc(r.id)}" data-pub="${r.published===false}">${r.published===false?"Show on site":"Hide from site"}</button></div>`).join(""):`<p class="mut">No reviews yet.</p>`}
+$("#bt").onclick=async e=>{const b=e.target.closest("button[data-a]");if(!b)return;const a=b.dataset.a,body=a==="confirm"?{status:"confirmed"}:a==="cancel"?{status:"cancelled"}:{paid:a==="paid"};
+if(a==="cancel"&&!confirm("Cancel booking "+b.dataset.r+"?"))return;try{await api("/api/bookings/"+b.dataset.r,{method:"PATCH",body:JSON.stringify(body)})}catch(x){toast(x.message)}};
+$("#rl").onclick=async e=>{const b=e.target.closest("button[data-rv]");if(!b)return;try{await api("/api/reviews/"+b.dataset.rv,{method:"PATCH",body:JSON.stringify({published:b.dataset.pub==="true"})})}catch(x){toast(x.message)}};
+$("#ff").onchange=$("#fq").oninput=draw;
+$$(".tabs button").forEach(b=>b.onclick=()=>{$$(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));$$(".pane").forEach(p=>p.classList.toggle("on",p.id===b.dataset.t))});
+$("#wf").onsubmit=async e=>{e.preventDefault();const f=e.target;$("#we").textContent="";
+try{await api("/api/admin/bookings",{method:"POST",body:JSON.stringify({name:f.nm.value,phone:f.ph.value,email:f.em.value,ci:f.ci.value,co:f.co.value,rm:+f.rm.value,gu:+f.gu.value,pay:f.py.value,requests:f.rq.value})});f.reset();toast("Booking saved and confirmed");$$(".tabs button")[0].click()}catch(x){$("#we").textContent=x.message}};
+$("#nb").onclick=async()=>{if(!("Notification"in window)){toast("This browser doesn't support desktop alerts");return}const p=await Notification.requestPermission();toast(p==="granted"?"Desktop alerts enabled":"Alerts blocked in browser settings");beep()};
+$("#sb").onclick=()=>{sound=!sound;$("#sb").textContent="Sound: "+(sound?"on":"off");beep()};
+addEventListener("focus",()=>{unread=0;document.title="Staff | The COCO Boutique Hotel";fresh.clear();draw()});
+if(S)start();
+</script></body></html>
