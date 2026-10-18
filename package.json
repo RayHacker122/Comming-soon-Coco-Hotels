@@ -1,0 +1,13 @@
+{
+  "name": "the-coco-boutique-hotel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website and API for The COCO Boutique Hotel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
